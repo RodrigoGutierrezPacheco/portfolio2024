@@ -3,7 +3,7 @@ import "./styles.css"
 
 export default function Inicio() {
   return (
-    <div className="w-screen overflow-hidden h-screen flex bg-[#1E1E1E] relative lekton-regular">
+    <div className="w-screen overflow-hidden min-h-screen flex bg-[#1E1E1E] relative lekton-regular">
       <span className="absolute text-[20px] text-white z-100 flex w-full h-full items-start justify-center">
         Menu
       </span>
@@ -13,7 +13,7 @@ export default function Inicio() {
       <span className="text-[30px] flex text-white font-semibold absolute z-100 justify-center w-full h-full mt-[110px] tracking-widest">
         &lt;AboutMe /&gt;
       </span>
-      <div className="w-screen h-screen flex items-center justify-center relative">
+      <div className="w-screen min-h-screen flex items-center justify-center relative">
         <div className="flex flex-col  w-screen items-center text-white gap-2">
           <span className="text-[25px] tracking-wider">
             Hi, my name is Rodrigo
