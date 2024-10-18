@@ -4,15 +4,15 @@ import "./menu.css"
 export default function Menu() {
   // Hook de estado para controlar si el menú está visible o no al hacer clic
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [clickedItem, setClickedItem] = useState(null);
+  const [clickedItem, setClickedItem] = useState<string | null>(null);
 
   // Función para alternar la visibilidad del menú al hacer clic
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Función para manejar clics en los elementos del menú
-  const handleItemClick = (item) => {
+  // Función para manejar clics en los elementos del menú, 'item' es un string
+  const handleItemClick = (item: string) => {
     setClickedItem(item);
   };
 
