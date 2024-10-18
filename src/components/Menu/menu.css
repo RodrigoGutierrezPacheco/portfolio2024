@@ -1,0 +1,17 @@
+.menu-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.5s ease, left 0.5s ease;
+  }
+  
+  .menu-item:hover::after,
+  .menu-item:focus::after {
+    width: 100%;
+    left: 0;
+  }
+  
