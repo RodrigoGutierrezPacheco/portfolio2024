@@ -30,7 +30,7 @@ export default function Inicio() {
         &lt;AboutMe /&gt;
       </span>
       <div className="w-screen min-h-[100vh] flex items-center justify-center relative">
-        <div className="flex flex-col  w-screen items-center text-white gap-2">
+        <div className="flex flex-col mt-14  w-screen items-center text-white gap-2">
           <span className="text-[25px] tracking-wider">
             Hi, my name is Rodrigo
           </span>
@@ -51,19 +51,19 @@ export default function Inicio() {
         </div>
 
         {/* Esquinas superiores */}
-        <div className="absolute top-0 left-0 w-40 h-32 p-3 rounded-tl-2xl border-l-[1rem] border-t-[1rem] border-green-900">
+        <div className="absolute top-0 left-0 w-[35vw] sm:w-40 h-32 p-3 rounded-tl-2xl border-l-[1rem] border-t-[1rem] border-green-900">
           <span className="">
             <img className="w-7" src="/gmail.png" />
           </span>
         </div>
-        <div className="absolute top-0 right-0 w-40 h-32 flex items-start justify-end p-3 rounded-tr-2xl border-r-[1rem] border-t-[1rem] border-green-900">
+        <div className="absolute top-0 right-0 w-[35vw] sm:w-40 h-32 flex items-start justify-end p-3 rounded-tr-2xl border-r-[1rem] border-t-[1rem] border-green-900">
           <img className="w-7" src="/linkedin.png" />
         </div>
         {/* Esquinas inferiores */}
-        <div className="flex items-end p-3 justify-start absolute bottom-0 left-0 w-40 h-32 rounded-bl-2xl border-l-[1rem] border-b-[1rem] border-green-900">
+        <div className="flex items-end p-3 justify-start absolute bottom-0 left-0 w-[35vw] sm:w-40 h-32 rounded-bl-2xl border-l-[1rem] border-b-[1rem] border-green-900">
           <img className="w-7" src="/github.png" />
         </div>
-        <div className="absolute bottom-0 right-0 w-40 h-32 rounded-br-2xl border-r-[1rem] border-b-[1rem] border-green-900"></div>
+        <div className="absolute bottom-0 right-0 w-[35vw] sm:w-40 h-32 rounded-br-2xl border-r-[1rem] border-b-[1rem] border-green-900"></div>
       </div>
     </div>
   );
