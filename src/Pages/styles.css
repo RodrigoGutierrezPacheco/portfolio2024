@@ -6,7 +6,7 @@
   
   .blinking-cursor::after {
     content: '|';
-    animation: blink-cursor 1s infinite;
+    animation: blink-cursor 0.9s infinite;
     opacity: 1;
   }
   
