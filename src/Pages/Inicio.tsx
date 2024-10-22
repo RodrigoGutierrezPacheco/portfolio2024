@@ -7,6 +7,7 @@ import HardSkills from "./HardSkills.tsx";
 export default function Inicio() {
   const [showAboutMe, setShowAboutMe] = useState(true); // Estado para alternar entre los componentes
   const [isAnimating, setIsAnimating] = useState(false); // Estado para manejar la animación
+  const [shouldAnimate, setShouldAnimate] = useState(true); // Controla si se inicializa la animación
 
   useEffect(() => {
     // Función para ajustar la altura real del viewport
@@ -56,8 +57,10 @@ export default function Inicio() {
 
   const triggerAnimation = (showAbout: boolean) => {
     setIsAnimating(true);
+    setShouldAnimate(false); // Detenemos la animación antes de cambiar
     setTimeout(() => {
       setShowAboutMe(showAbout);
+      setShouldAnimate(true); // Reiniciamos la animación después del cambio
       setIsAnimating(false);
     }, 300); // Tiempo de la animación
   };
@@ -72,10 +75,10 @@ export default function Inicio() {
       {/* Contenedor con animación */}
       <div className={`transition-container ${isAnimating ? 'animating' : ''}`}>
         <div className={`view ${showAboutMe ? 'show' : 'hide'}`}>
-          <AboutMe />
+          <AboutMe shouldAnimate={shouldAnimate} />
         </div>
         <div className={`view ${!showAboutMe ? 'show' : 'hide'}`}>
-          <HardSkills />
+          <HardSkills shouldAnimate={shouldAnimate} />
         </div>
       </div>
     </div>

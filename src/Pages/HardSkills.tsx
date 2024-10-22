@@ -1,4 +1,19 @@
-export default function HardSkills() {
+import { useEffect, useState } from "react";
+
+interface HardSkillsProps {
+  shouldAnimate: boolean;
+}
+
+export default function HardSkills({ shouldAnimate }: HardSkillsProps) {
+  const [iniciar, setIniciar] = useState(false);
+
+  useEffect(() => {
+    if (shouldAnimate) {
+      setIniciar(true);
+    } else {
+      setIniciar(false); // Detenemos la animación si se desactiva
+    }
+  }, [shouldAnimate]);
   return (
     <>
       <span className="svg text-[30px] flex text-white font-semibold absolute z-100 justify-center w-full h-full mt-[110px] tracking-widest">
@@ -6,8 +21,10 @@ export default function HardSkills() {
       </span>
       <div className="w-screen min-h-[100vh] flex items-center justify-center relative">
         <div className="flex flex-col mt-14  w-screen items-center text-white gap-2">
-          <span className="typewriter-hardSkills text-[25px]">
-          Code. Build. Deploy. Repeat.
+          <span
+            className={`${iniciar ? "typewriter-hardSkills" : ""} text-[25px]`}
+          >
+            Code. Build. Deploy. Repeat.
           </span>
           <div className="flex flex-col mr-2 mt-4 h-full gap-2">
             <span>&lt;HardSkills&gt;</span>
@@ -30,7 +47,7 @@ export default function HardSkills() {
                     </span>
                   </div>
                   {/* Tailwind */}
-                  <div className="flex gap-3" >
+                  <div className="flex gap-3">
                     <span className="border-white border-2 px-4 rounded-full w-fit tracking-widest hover:bg-white hover:text-black hover:font-semibold delay-100 duration-200 cursor-pointer">
                       TAILWIND CSS
                     </span>

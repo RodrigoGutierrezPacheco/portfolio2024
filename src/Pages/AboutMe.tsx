@@ -1,4 +1,20 @@
-export default function AboutMe() {
+import { useEffect, useState } from "react";
+
+interface AboutMeProps {
+  shouldAnimate: boolean;
+}
+
+export default function AboutMe({ shouldAnimate }: AboutMeProps) {
+  const [iniciar, setIniciar] = useState(false);
+
+  useEffect(() => {
+    if (shouldAnimate) {
+      setIniciar(true);
+    } else {
+      setIniciar(false); // Detenemos la animación si se desactiva
+    }
+  }, [shouldAnimate]);
+
   return (
     <>
       <span className="svg text-[30px] flex text-white font-semibold absolute z-100 justify-center w-full h-full mt-[110px] tracking-widest">
@@ -6,7 +22,11 @@ export default function AboutMe() {
       </span>
       <div className="w-screen min-h-[100vh] flex items-center justify-center relative">
         <div className="flex flex-col mt-14  w-screen items-center text-white gap-2">
-          <span className="typewriter  text-[25px] tracking-wider">
+          <span
+            className={`${
+              iniciar ? "typewriter" : ""
+            } text-[25px] tracking-wider`}
+          >
             Hi, my name is Rodrigo.
           </span>
           <div className="flex flex-col mr-2 mt-4 h-full">
@@ -24,7 +44,6 @@ export default function AboutMe() {
             <span>&lt;/AboutMe&gt;</span>
           </div>
         </div>
-
         {/* Esquinas superiores */}
         <div className="absolute top-0 left-0 w-[35vw] sm:w-40 h-32 p-3 rounded-tl-2xl border-l-[1rem] border-t-[1rem] border-green-900">
           <span className="">
