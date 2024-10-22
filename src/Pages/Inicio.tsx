@@ -4,6 +4,7 @@ import Menu from "../components/Menu/Menu.tsx";
 import AboutMe from "./AboutMe.tsx";
 import HardSkills from "./HardSkills.tsx";
 import HardSkills1 from "./HardSkills1.tsx"; // Importamos el nuevo componente
+import Projects from "./Projects.tsx";
 
 export default function Inicio() {
   const [currentView, setCurrentView] = useState(0); // 0 = AboutMe, 1 = HardSkills, 2 = HardSkills1
@@ -63,9 +64,9 @@ export default function Inicio() {
       // Cambiar la vista según la dirección del swipe
       setCurrentView((prevView) => {
         if (direction === "next") {
-          return (prevView + 1) % 3; // Hay tres vistas (0, 1, 2)
+          return (prevView + 1) % 4; // Hay tres vistas (0, 1, 2)
         } else {
-          return (prevView - 1 + 3) % 3; // Ciclar hacia atrás si se va a la izquierda
+          return (prevView - 1 + 4) % 4; // Ciclar hacia atrás si se va a la izquierda
         }
       });
       setShouldAnimate(true); // Reiniciamos la animación después del cambio
@@ -81,15 +82,18 @@ export default function Inicio() {
       <Menu />
 
       {/* Contenedor con animación */}
-      <div className={`transition-container ${isAnimating ? 'animating' : ''}`}>
-        <div className={`view ${currentView === 0 ? 'show' : 'hide'}`}>
+      <div className={`transition-container ${isAnimating ? "animating" : ""}`}>
+        <div className={`view ${currentView === 0 ? "show" : "hide"}`}>
           <AboutMe shouldAnimate={shouldAnimate} />
         </div>
-        <div className={`view ${currentView === 1 ? 'show' : 'hide'}`}>
+        <div className={`view ${currentView === 1 ? "show" : "hide"}`}>
           <HardSkills shouldAnimate={shouldAnimate} />
         </div>
-        <div className={`view ${currentView === 2 ? 'show' : 'hide'}`}>
+        <div className={`view ${currentView === 2 ? "show" : "hide"}`}>
           <HardSkills1 shouldAnimate={shouldAnimate} />
+        </div>
+        <div className={`view ${currentView === 3 ? "show" : "hide"}`}>
+          <Projects shouldAnimate={shouldAnimate} />
         </div>
       </div>
     </div>
