@@ -6,6 +6,7 @@ import HardSkills from "./HardSkills.tsx";
 
 export default function Inicio() {
   const [showAboutMe, setShowAboutMe] = useState(true); // Estado para alternar entre los componentes
+  const [isAnimating, setIsAnimating] = useState(false); // Estado para manejar la animación
 
   useEffect(() => {
     // Función para ajustar la altura real del viewport
@@ -14,7 +15,6 @@ export default function Inicio() {
       document.documentElement.style.setProperty("--vh", `${vh}px`);
     };
 
-    // Ajustar la altura al cargar la página y al cambiar el tamaño de la ventana
     window.addEventListener("resize", setVh);
     setVh();
 
@@ -22,42 +22,45 @@ export default function Inicio() {
   }, []);
 
   useEffect(() => {
-    // Variables para el inicio y final del toque
     let touchStartX = 0;
     let touchEndX = 0;
 
-    // Función que captura el inicio del toque
     const handleTouchStart = (e: TouchEvent) => {
       touchStartX = e.changedTouches[0].screenX;
     };
 
-    // Función que captura el final del toque y determina la dirección del swipe
     const handleTouchEnd = (e: TouchEvent) => {
       touchEndX = e.changedTouches[0].screenX;
-      handleSwipeGesture(); // Verifica la dirección del deslizamiento
+      handleSwipeGesture();
     };
 
-    // Función para manejar el deslizamiento
     const handleSwipeGesture = () => {
+      if (isAnimating) return; // Evitar animación múltiple
       if (touchStartX - touchEndX > 50) {
-        // Deslizar a la izquierda
-        setShowAboutMe(false); // Mostrar HardSkills
+        // Deslizar a la izquierda (mostrar HardSkills)
+        triggerAnimation(false);
       } else if (touchEndX - touchStartX > 50) {
-        // Deslizar a la derecha
-        setShowAboutMe(true); // Mostrar AboutMe
+        // Deslizar a la derecha (mostrar AboutMe)
+        triggerAnimation(true);
       }
     };
 
-    // Añadir los eventos de toque
     window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchend", handleTouchEnd);
 
-    // Cleanup
     return () => {
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, []);
+  }, [isAnimating]);
+
+  const triggerAnimation = (showAbout: boolean) => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setShowAboutMe(showAbout);
+      setIsAnimating(false);
+    }, 300); // Tiempo de la animación
+  };
 
   return (
     <div className="w-screen overflow-hidden min-h-[100vh] flex bg-[#1E1E1E] relative lekton-regular">
@@ -66,8 +69,15 @@ export default function Inicio() {
       </span>
       <Menu />
 
-      {/* Muestra AboutMe o HardSkills basado en el estado */}
-      {showAboutMe ? <AboutMe /> : <HardSkills />}
+      {/* Contenedor con animación */}
+      <div className={`transition-container ${isAnimating ? 'animating' : ''}`}>
+        <div className={`view ${showAboutMe ? 'show' : 'hide'}`}>
+          <AboutMe />
+        </div>
+        <div className={`view ${!showAboutMe ? 'show' : 'hide'}`}>
+          <HardSkills />
+        </div>
+      </div>
     </div>
   );
 }
