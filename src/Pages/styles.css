@@ -6,7 +6,7 @@
 }
 
 .blinking-cursor::after {
-  content: '|';
+  content: "|";
   animation: blink-cursor 0.9s infinite;
   opacity: 1;
 }
@@ -19,6 +19,7 @@
   animation: typing 1.5s steps(25, end) forwards, blink-caret 0.9s infinite;
   width: 25ch; /* Asegura que el contenedor mantenga el ancho después de escribir */
 }
+
 
 /* Animación para la escritura del texto */
 @keyframes typing {
@@ -34,5 +35,33 @@
 @keyframes blink-caret {
   50% {
     border-right-color: transparent;
+  }
+}
+
+
+/* Hardskills */
+/* Animación de cursor parpadeante */
+@keyframes blink-cursor {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Estilo de la máquina de escribir */
+.typewriter-hardSkills {
+  overflow: hidden;
+  width: auto;
+  white-space: nowrap;
+  animation: typingHard 1.5s steps(34, end) forwards, blink-caret 0.9s infinite;
+  width: 34ch; /* Asegura que el contenedor mantenga el ancho después de escribir */
+}
+
+/* Animación para la escritura del texto */
+@keyframes typingHard {
+  from {
+    width: 0;
+  }
+  to {
+    width: 30ch; /* Asegura que el contenedor tenga suficiente espacio para el texto */
   }
 }
