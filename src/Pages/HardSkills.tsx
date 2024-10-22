@@ -30,7 +30,7 @@ export default function HardSkills() {
                     </span>
                   </div>
                   {/* Tailwind */}
-                  <div>
+                  <div className="flex gap-3" >
                     <span className="border-white border-2 px-4 rounded-full w-fit tracking-widest hover:bg-white hover:text-black hover:font-semibold delay-100 duration-200 cursor-pointer">
                       TAILWIND CSS
                     </span>
@@ -45,31 +45,31 @@ export default function HardSkills() {
                     </span>
                   </div>
                   {/* Javascript */}
-                  <div>
+                  <div className="flex gap-3">
                     <span className="border-white border-2 px-4 rounded-full w-fit tracking-widest hover:bg-white hover:text-black hover:font-semibold delay-100 duration-200 cursor-pointer">
                       JAVASCRIPT
                     </span>
                   </div>
                   {/* Responsive design */}
-                  <div>
+                  <div className="flex gap-3">
                     <span className="border-white border-2 px-4 rounded-full w-fit tracking-widest hover:bg-white hover:text-black hover:font-semibold delay-100 duration-200 cursor-pointer">
                       RESPONSIVE DESIGN
                     </span>
                   </div>
                   {/* GRAPHQL */}
-                  <div>
+                  <div className="flex gap-3">
                     <span className="border-white border-2 px-4 rounded-full w-fit tracking-widest hover:bg-white hover:text-black hover:font-semibold delay-100 duration-200 cursor-pointer">
                       GRAPHQL
                     </span>
                   </div>
                   {/* React native */}
-                  <div>
+                  <div className="flex gap-3">
                     <span className="border-white border-2 px-4 rounded-full w-fit tracking-widest hover:bg-white hover:text-black hover:font-semibold delay-100 duration-200 cursor-pointer">
                       REACT NATIVE
                     </span>
                   </div>
                   {/* Bootstrap */}
-                  <div>
+                  <div className="flex gap-3">
                     <span className="border-white border-2 px-4 rounded-full w-fit tracking-widest hover:bg-white hover:text-black hover:font-semibold delay-100 duration-200 cursor-pointer">
                       BOOTSTRAP
                     </span>
