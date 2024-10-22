@@ -6,8 +6,8 @@ export default function HardSkills() {
       </span>
       <div className="w-screen min-h-[100vh] flex items-center justify-center relative">
         <div className="flex flex-col mt-14  w-screen items-center text-white gap-2">
-          <span className="typewriter-hardSkills text-[25px] tracking-wider">
-            Tools I craft my code with:
+          <span className="typewriter-hardSkills text-[25px]">
+          Code. Build. Deploy. Repeat.
           </span>
           <div className="flex flex-col mr-2 mt-4 h-full gap-2">
             <span>&lt;HardSkills&gt;</span>

@@ -21,10 +21,43 @@ export default function Inicio() {
     return () => window.removeEventListener("resize", setVh); // Cleanup
   }, []);
 
-  // Función para alternar entre AboutMe y HardSkills
-  const toggleComponent = () => {
-    setShowAboutMe(!showAboutMe);
-  };
+  useEffect(() => {
+    // Variables para el inicio y final del toque
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    // Función que captura el inicio del toque
+    const handleTouchStart = (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    };
+
+    // Función que captura el final del toque y determina la dirección del swipe
+    const handleTouchEnd = (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipeGesture(); // Verifica la dirección del deslizamiento
+    };
+
+    // Función para manejar el deslizamiento
+    const handleSwipeGesture = () => {
+      if (touchStartX - touchEndX > 50) {
+        // Deslizar a la izquierda
+        setShowAboutMe(false); // Mostrar HardSkills
+      } else if (touchEndX - touchStartX > 50) {
+        // Deslizar a la derecha
+        setShowAboutMe(true); // Mostrar AboutMe
+      }
+    };
+
+    // Añadir los eventos de toque
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, []);
 
   return (
     <div className="w-screen overflow-hidden min-h-[100vh] flex bg-[#1E1E1E] relative lekton-regular">
@@ -32,17 +65,9 @@ export default function Inicio() {
         coderodrigo.dev
       </span>
       <Menu />
-      
+
       {/* Muestra AboutMe o HardSkills basado en el estado */}
       {showAboutMe ? <AboutMe /> : <HardSkills />}
-      
-      {/* Botón para alternar entre AboutMe y HardSkills */}
-      <button
-        onClick={toggleComponent}
-        className="absolute bottom-10 right-10 bg-white text-black px-4 py-2 rounded"
-      >
-        {showAboutMe ? "Ver Habilidades Técnicas" : "Ver Sobre Mí"}
-      </button>
     </div>
   );
 }
