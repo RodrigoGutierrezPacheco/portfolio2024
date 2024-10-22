@@ -15,7 +15,7 @@ export default function HardSkills() {
               <div className="border-l-2 border-[#363636] pl-4 w-[300px] mt-2 mb-2 ml-5 tracking-wide">
                 <div className="flex flex-col gap-4 h-full max-h-[300px] overflow-hidden pt-1 overflow-y-scroll">
                   {/* Frontend */}
-                  <div>
+                  <div className="flex gap-3">
                     <span className="border-white border-2 px-2 rounded-full w-fit tracking-widest hover:bg-white hover:text-black hover:font-semibold delay-100 duration-200 cursor-pointer">
                       FRONTEND DEVELOPER
                     </span>
