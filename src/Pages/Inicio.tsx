@@ -27,12 +27,12 @@ export default function Inicio() {
     let touchEndX = 0;
 
     // Función que captura el inicio del toque
-    const handleTouchStart = (e) => {
+    const handleTouchStart = (e: TouchEvent) => {
       touchStartX = e.changedTouches[0].screenX;
     };
 
     // Función que captura el final del toque y determina la dirección del swipe
-    const handleTouchEnd = (e) => {
+    const handleTouchEnd = (e: TouchEvent) => {
       touchEndX = e.changedTouches[0].screenX;
       handleSwipeGesture(); // Verifica la dirección del deslizamiento
     };
