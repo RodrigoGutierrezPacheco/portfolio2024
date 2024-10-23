@@ -32,7 +32,7 @@ export default function Projects({ shouldAnimate }: AboutMeProps) {
           </span>
           <div className="flex flex-col mr-2 mt-4 h-full gap-4">
             <span>&lt;Projects&gt;</span>
-            <div className="border-l-2 border-[#363636] pl-4 w-[300px] mt-2 mb-2 ml-5 tracking-wide h-[320px] overflow-hidden overflow-y-scroll">
+            <div className="border-l-2 border-[#363636] pl-4 w-[85vw] mt-2 mb-2 ml-5 tracking-wide h-[320px] overflow-hidden overflow-y-scroll">
               {/* Projects */}
               {projectsData.map((project) => (
                 <div key={project.id} className="flex flex-col gap-2 mb-10 mt-3">
