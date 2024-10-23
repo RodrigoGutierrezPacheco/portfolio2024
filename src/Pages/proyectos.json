@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "name": "BlckTraining",
+      "description": "BlxckTraining is a web app designed to assign workout routines for home, gym, or any environment where you can train.",
+      "image": "/blxcktraining.png",
+      "technologies": ["/react.png", "/html.png", "/css.png", "/js.png", "/tailwind.png"],
+      "link": "https://blxcktraining.app/"
+    },
+    {
+      "id": 2,
+      "name": "MB App",
+      "description": "Global platform to view restaurant reviews from around the world.",
+      "image": "/MB.jpeg",
+      "technologies": ["/react.png", "/js.png", "/css.png", "/tailwind.png"],
+      "link": "https://projecttwo.com"
+    },
+    {
+      "id": 3,
+      "name": "ERP MB",
+      "description": "Robust and scalable web platform designed as an ERP for managing restaurants in the MB app.",
+      "image": "/MB.jpeg",
+      "technologies": ["/react.png", "/css.png", "/tailwind.png"],
+      "link": null
+    }
+  ]
+  

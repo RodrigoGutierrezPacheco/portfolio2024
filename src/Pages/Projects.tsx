@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import projectsData from "./proyectos.json";
 
 interface AboutMeProps {
   shouldAnimate: boolean;
@@ -21,7 +22,7 @@ export default function Projects({ shouldAnimate }: AboutMeProps) {
         &lt;Projects /&gt;
       </span>
       <div className="w-screen min-h-[100vh] flex items-center justify-center relative">
-        <div className="flex flex-col mt-14  w-screen items-center text-white gap-2">
+        <div className="flex flex-col mt-14 w-screen items-center text-white gap-2">
           <span
             className={`${
               iniciar ? "typewriterCreations" : ""
@@ -29,39 +30,42 @@ export default function Projects({ shouldAnimate }: AboutMeProps) {
           >
             Code and Creations.
           </span>
-          <div className="flex flex-col mr-2 mt-4 h-full">
+          <div className="flex flex-col mr-2 mt-4 h-full gap-4">
             <span>&lt;Projects&gt;</span>
-            <div className="border-l-2 border-[#363636] pl-4 w-[300px] mt-2 mb-2 ml-5 tracking-wide">
+            <div className="border-l-2 border-[#363636] pl-4 w-[300px] mt-2 mb-2 ml-5 tracking-wide h-[320px] overflow-hidden overflow-y-scroll">
               {/* Projects */}
-              <div className="flex flex-col gap-2">
-                <span className="flex gap-3">
-                  <img className="w-36" src="/blxcktraining.png" alt="" />
-                  <div className="flex flex-col gap-3">
-                    <span>-BlckTraining</span>
-                    <div className="grid grid-cols-3 gap-2">
-                      <img className="w-10" src="/react.png" alt="" />
-                      <img className="w-10" src="/html.png" alt="" />
-                      <img className="w-[32px]" src="/css.png" alt="" />
-                      <img className="w-[32px]" src="/js.png" alt="" />
-                      <img className="w-[32px]" src="/tailwind.png" alt="" />
+              {projectsData.map((project) => (
+                <div key={project.id} className="flex flex-col gap-2 mb-10 mt-3">
+                  <span className="flex gap-3">
+                    <img
+                      className="w-36 rounded-xl"
+                      src={project.image}
+                      alt={project.name}
+                    />
+                    <div className="flex flex-col gap-3">
+                      <span>- {project.name}</span>
+                      <div className="grid grid-cols-3 gap-2">
+                        {project.technologies.map((tech, index) => (
+                          <img key={index} className="w-10" src={tech} alt="" />
+                        ))}
+                      </div>
                     </div>
+                  </span>
+                  <span className="mt-2">{project.description}</span>
+                  <div className="flex items-center justify-center">
+                    {project.link && (
+                      <button
+                        onClick={() => {
+                          window.location.href = project.link ?? "";
+                        }}
+                        className="mt-2 border-2 w-fit px-3 py-1 rounded-full hover:bg-black hover:text-white"
+                      >
+                        Go to site
+                      </button>
+                    )}
                   </div>
-                </span>
-                <span>
-                  BlxckTraining is a web app designed to assign workout routines
-                  for home, gym, or any environment where you can train.
-                </span>
-                <div className="flex items-center justify-center">
-                  <button
-                    onClick={() => {
-                      window.location.href = "https://blxcktraining.app/";
-                    }}
-                    className="mt-2 border-2 w-fit px-3 py-1 rounded-full hover:bg-black hover:text-white"
-                  >
-                    Go to site
-                  </button>
                 </div>
-              </div>
+              ))}
             </div>
             <span>&lt;/Projects&gt;</span>
           </div>
